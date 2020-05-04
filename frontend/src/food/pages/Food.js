@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import List from "../components/List/List";
 import AddButton from "../components/AddButton/AddButton";
+import AddModal from "../components/AddModal/AddModal";
 
 function Food() {
   const [DUMMY_ITEMS, setList] = useState([
@@ -25,19 +26,37 @@ function Food() {
     },
   ]);
 
-  function addItem() {
-    setList((prevValue) => {
-      return [
-        ...prevValue,
-        { id: "i4", color: "green", date: "1st May 2020", rate: "5" },
-      ];
-    });
+  function addItem(item) {
+     setList((prevValue) => {
+       return [
+         ...prevValue,
+         item,
+       ];
+     });
+    closeShowAdd();
   }
+
+  const [showAdd, setShowAdd] = useState(false);
+
+  const openShowAdd = () => setShowAdd(true);
+
+  const closeShowAdd = () => setShowAdd(false);
+
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   console.log(e);
+  // }
 
   return (
     <React.Fragment>
+      <AddModal
+        show={showAdd}
+        // onSubmit={handleSubmit}
+        onCancel={closeShowAdd}
+        onNewItem={addItem}
+      />
       <List items={DUMMY_ITEMS} />
-      <AddButton onClick={addItem} />
+      <AddButton onClick={openShowAdd} />
     </React.Fragment>
   );
 }

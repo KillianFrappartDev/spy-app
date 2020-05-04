@@ -1,0 +1,31 @@
+.modal {
+    position: fixed;
+    width: 45%;
+    height: 70%;
+    background-color: white;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 600ms;
+}
+
+.modal-enter {
+    transform: translateY(-10rem);
+    opacity: 0;
+  }
+  
+  .modal-enter-active {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  
+  .modal-exit {
+    transform: translate(50%, 50%);
+    opacity: 1;
+  }
+  
+  .modal-exit-active {
+    opacity: 0;
+  }
+  
