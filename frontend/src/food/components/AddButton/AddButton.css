@@ -1,0 +1,11 @@
+.add-button {
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+    height: 3rem;
+    border-radius: 10px;
+}
+
+.add-button:hover {
+    background-color: lightgray;
+}

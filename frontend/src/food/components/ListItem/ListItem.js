@@ -2,9 +2,14 @@ import React from 'react';
 
 import './ListItem.css';
 
-function ListItem() {
+function ListItem(props) {
 
-    return <h1>ListItem !</h1>
+    return (
+    <div className={`list-item ${props.color}`}>
+        <h2 className="list-item__date">{props.date}</h2>
+        <h2 className="list-item__rate">{props.rate}</h2>
+    </div>
+    );
 
 };
 
