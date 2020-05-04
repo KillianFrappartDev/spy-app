@@ -1,11 +1,24 @@
-import React from 'react';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from "react-router-dom";
 
-import Food from './food/pages/Food';
+import Food from "./food/pages/Food";
 
 function App() {
-
-    return <Food />;
-
-};
+  return (
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          <Food />
+        </Route>
+        <Redirect to="/" />
+      </Switch>
+    </Router>
+  );
+}
 
 export default App;
