@@ -10,7 +10,9 @@ function ModalOverlay(props) {
 
   function getDate(e) {
     const currentDate = e.target.value;
-    setNewDate(currentDate);
+    const splitDate = currentDate.split("-");
+    const formattedDate = splitDate[2] + " / " + splitDate[1] + " / " + splitDate[0];
+    setNewDate(formattedDate);
   }
 
   function handleChange(e) {
@@ -24,7 +26,7 @@ function ModalOverlay(props) {
     document.getElementById("dinner"),
     document.getElementById("desert"),
   ];
-  var newItem = { id: "i5", date: newDate, rate: 0, color: "" };
+  var newItem = { id: "", date: newDate, rate: 0, color: "" };
 
   function createItem(e) {
     e.preventDefault();

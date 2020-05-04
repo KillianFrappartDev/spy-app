@@ -7,6 +7,11 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.list-item:hover {
+    background-color: red;
+    transition: all 2s ease;
+}
+
 .list-item__date {
     position: absolute;
     width: 80%;
@@ -16,6 +21,11 @@
 .list-item__rate {
     position: absolute;
     right: 5%;
+}
+
+.list-item__delete {
+    padding-top: 1rem;
+    text-align: center;
 }
 
 .green {

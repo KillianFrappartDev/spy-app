@@ -7,32 +7,30 @@ import AddModal from "../components/AddModal/AddModal";
 function Food() {
   const [DUMMY_ITEMS, setList] = useState([
     {
-      id: "i1",
+      id: 0,
       color: "green",
-      date: "1st May 2020",
+      date: "01 / 05 / 2020",
       rate: "5",
     },
     {
-      id: "i2",
+      id: 1,
       color: "orange",
-      date: "2nd May 2020",
+      date: "02 / 05 / 2020",
       rate: "3",
     },
     {
-      id: "i3",
+      id: 2,
       color: "red",
-      date: "3rd May 2020",
+      date: "03 / 05 / 2020",
       rate: "1",
     },
   ]);
 
   function addItem(item) {
-     setList((prevValue) => {
-       return [
-         ...prevValue,
-         item,
-       ];
-     });
+    item.id = DUMMY_ITEMS.length;
+    setList((prevValue) => {
+      return [...prevValue, item];
+    });
     closeShowAdd();
   }
 
@@ -42,19 +40,9 @@ function Food() {
 
   const closeShowAdd = () => setShowAdd(false);
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   console.log(e);
-  // }
-
   return (
     <React.Fragment>
-      <AddModal
-        show={showAdd}
-        // onSubmit={handleSubmit}
-        onCancel={closeShowAdd}
-        onNewItem={addItem}
-      />
+      <AddModal show={showAdd} onCancel={closeShowAdd} onNewItem={addItem} />
       <List items={DUMMY_ITEMS} />
       <AddButton onClick={openShowAdd} />
     </React.Fragment>
