@@ -26,6 +26,7 @@
 .list-item__delete {
     padding-top: 1rem;
     text-align: center;
+    height: 100%;
 }
 
 .green {

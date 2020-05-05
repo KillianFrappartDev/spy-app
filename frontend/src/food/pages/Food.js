@@ -34,6 +34,13 @@ function Food() {
     closeShowAdd();
   }
 
+  function deleteItem(e) {
+    const itemID = e.target.id;
+    const result = DUMMY_ITEMS.filter(item => item.id != itemID);
+    setList(result);
+    
+  }
+
   const [showAdd, setShowAdd] = useState(false);
 
   const openShowAdd = () => setShowAdd(true);
@@ -43,7 +50,7 @@ function Food() {
   return (
     <React.Fragment>
       <AddModal show={showAdd} onCancel={closeShowAdd} onNewItem={addItem} />
-      <List items={DUMMY_ITEMS} />
+      <List items={DUMMY_ITEMS} del={deleteItem} />
       <AddButton onClick={openShowAdd} />
     </React.Fragment>
   );

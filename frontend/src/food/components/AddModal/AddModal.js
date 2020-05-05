@@ -11,12 +11,9 @@ function ModalOverlay(props) {
   function getDate(e) {
     const currentDate = e.target.value;
     const splitDate = currentDate.split("-");
-    const formattedDate = splitDate[2] + " / " + splitDate[1] + " / " + splitDate[0];
+    const formattedDate =
+      splitDate[2] + " / " + splitDate[1] + " / " + splitDate[0];
     setNewDate(formattedDate);
-  }
-
-  function handleChange(e) {
-    console.log(e.target.checked);
   }
 
   const domElements = [
@@ -36,7 +33,7 @@ function ModalOverlay(props) {
       }
     });
     switch (true) {
-      case newItem.rate < 3 :
+      case newItem.rate < 3:
         newItem.color = "red";
         break;
       case newItem.rate === 3:
@@ -52,52 +49,27 @@ function ModalOverlay(props) {
   }
 
   const content = (
-    <div className='modal'>
+    <div className="modal">
       <form onSubmit={createItem}>
-        <label htmlFor='date'>Date</label>
-        <input id='date' type='date' onChange={getDate} />
+        <label htmlFor="date">Date</label>
+        <input id="date" type="date" onChange={getDate} />
         <br />
-        <label htmlFor='breakfast'>Breakfast</label>
-        <input
-          id='breakfast'
-          name='breakfast'
-          type='checkbox'
-          onChange={handleChange}
-        />
+        <label htmlFor="breakfast">Breakfast</label>
+        <input id="breakfast" name="breakfast" type="checkbox" />
         <br />
-        <label htmlFor='lunch'>Lunch</label>
-        <input
-          id='lunch'
-          name='Lunch'
-          type='checkbox'
-          onChange={handleChange}
-        />
+        <label htmlFor="lunch">Lunch</label>
+        <input id="lunch" name="Lunch" type="checkbox" />
         <br />
-        <label htmlFor='snack'>Snacks</label>
-        <input
-          id='snack'
-          name='Snacks'
-          type='checkbox'
-          onChange={handleChange}
-        />
+        <label htmlFor="snack">Snacks</label>
+        <input id="snack" name="Snacks" type="checkbox" />
         <br />
-        <label htmlFor='dinner'>Dinner</label>
-        <input
-          id='dinner'
-          name='Dinner'
-          type='checkbox'
-          onChange={handleChange}
-        />
+        <label htmlFor="dinner">Dinner</label>
+        <input id="dinner" name="Dinner" type="checkbox" />
         <br />
-        <label htmlFor='desert'>Desert</label>
-        <input
-          id='desert'
-          name='Desert'
-          type='checkbox'
-          onChange={handleChange}
-        />
+        <label htmlFor="desert">Desert</label>
+        <input id="desert" name="Desert" type="checkbox" />
         <br />
-        <input type='submit' />
+        <input type="submit" />
       </form>
     </div>
   );
@@ -113,7 +85,8 @@ function AddModal(props) {
         mountOnEnter
         unmountOnExit
         timeout={600}
-        classNames='modal'>
+        classNames="modal"
+      >
         <ModalOverlay {...props} />
       </CSSTransition>
     </React.Fragment>
