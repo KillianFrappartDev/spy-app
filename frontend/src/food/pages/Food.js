@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import List from "../components/List/List";
 import AddButton from "../components/AddButton/AddButton";
 import AddModal from "../components/AddModal/AddModal";
+import Average from "../components/Average/Average";
 
 function Food() {
   const [DUMMY_ITEMS, setList] = useState([
@@ -26,6 +27,20 @@ function Food() {
     },
   ]);
 
+  function calcAverage(list) {
+    let total = 0;
+    let number = 0;
+
+    list.map((item) => {
+      total += parseInt(item.rate);
+      number++;
+    });
+
+    const getPercent = (total * 20) / number;
+
+    return getPercent;
+  }
+
   function addItem(item) {
     item.id = DUMMY_ITEMS.length;
     setList((prevValue) => {
@@ -36,9 +51,8 @@ function Food() {
 
   function deleteItem(e) {
     const itemID = e.target.id;
-    const result = DUMMY_ITEMS.filter(item => item.id != itemID);
+    const result = DUMMY_ITEMS.filter((item) => item.id != itemID);
     setList(result);
-    
   }
 
   const [showAdd, setShowAdd] = useState(false);
@@ -49,6 +63,7 @@ function Food() {
 
   return (
     <React.Fragment>
+      <Average average={calcAverage(DUMMY_ITEMS)} />
       <AddModal show={showAdd} onCancel={closeShowAdd} onNewItem={addItem} />
       <List items={DUMMY_ITEMS} del={deleteItem} />
       <AddButton onClick={openShowAdd} />

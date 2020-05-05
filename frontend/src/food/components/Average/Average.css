@@ -1,0 +1,23 @@
+.average {
+    margin: 0 auto;
+    text-align: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.average.red {
+    background-color: red;
+}
+
+.average.yellow {
+    background-color: yellow;
+}
+
+.average.green {
+    background-color: green;
+}
+
+.average h1 {
+    padding-top: 1.2rem;
+}
